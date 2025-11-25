@@ -35,3 +35,9 @@ Uso de datos de ejemplo
 # Solo si desea agregar datos de ejemplo
 python seed.py
 ```
+
+Importar desde Excel
+```
+La aplicación ahora incluye una opción para importar artículos desde un archivo Excel (.xlsx).
+Use el botón "Importar desde Excel" en la página principal o vaya a /import. Puede usar el archivo de ejemplo `datos.xlsx` que incluye el proyecto; la hoja debe contener encabezados con: Código, Descripción de Artículo, Categoría, Unidad de medida, Cantidad, Valor Artículo (unitario), Valor total.
+``` 

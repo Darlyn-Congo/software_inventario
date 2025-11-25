@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Importar Artículos desde Excel (.xlsx)</h2>
+<p>Suba un archivo .xlsx con los encabezados: Código, Descripción de Artículo, Categoría, Unidad de medida, Cantidad, Valor Artículo (unitario), Valor total.</p>
+<form method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="file">Archivo Excel (.xlsx)</label>
+    <input type="file" class="form-control-file" id="file" name="file" accept=".xlsx" required>
+  </div>
+  <button type="submit" class="btn btn-success">Importar</button>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">Cancelar</a>
+</form>
+{% endblock %}

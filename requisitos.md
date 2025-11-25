@@ -1,6 +1,7 @@
 La interfas va a mostrar dos botones iniciales: 
 1. Asignar Artículo
 2. Seguimiento 
+3. Importar desde Excel (opcional)
 Asignar Artículo va a pedir la siguiente información: 
 -Código 
 -Descripción de Artículo	
