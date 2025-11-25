@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Asignar Artículo</h2>
+<form method="post">
+  <div class="form-group">
+    <label for="code">Código</label>
+    <input type="text" class="form-control" id="code" name="code" required>
+  </div>
+  <div class="form-group">
+    <label for="description">Descripción de Artículo</label>
+    <input type="text" class="form-control" id="description" name="description" required>
+  </div>
+  <div class="form-group">
+    <label for="category">Categoría</label>
+    <input type="text" class="form-control" id="category" name="category">
+  </div>
+  <div class="form-group">
+    <label for="unit">Unidad de medida</label>
+    <input type="text" class="form-control" id="unit" name="unit">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="quantity">Cantidad</label>
+      <input type="number" step="any" min="0" class="form-control" id="quantity" name="quantity" value="1" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="unit_value">Valor Artículo (unitario)</label>
+      <input type="number" step="any" min="0" class="form-control" id="unit_value" name="unit_value" value="0" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="total_value">Valor total</label>
+      <input type="text" class="form-control" id="total_value" name="total_value" readonly>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Guardar</button>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">Cancelar</a>
+</form>
+
+<script>
+function calculateTotal() {
+  const q = parseFloat(document.getElementById('quantity').value) || 0;
+  const uv = parseFloat(document.getElementById('unit_value').value) || 0;
+  const total = q * uv;
+  document.getElementById('total_value').value = total.toFixed(2);
+}
+
+const inputs = ['quantity', 'unit_value'];
+inputs.forEach(id => document.getElementById(id).addEventListener('input', calculateTotal));
+
+window.addEventListener('load', calculateTotal);
+</script>
+{% endblock %}
